@@ -49,3 +49,26 @@ function listar(){
     }
   });
 }
+
+$(document).on("change", "#listaPessoas", function(){
+  var parametros = {
+    "codigo": $("option:selected",("#listaPessoas")).val()
+  }
+   $.ajax({
+    type:"post",
+    url: "",
+    data:parametro,
+    dataType:"json",
+
+    success: function(data){
+      $("#codigo").val(data.pessoa.codigo);
+      $("#nome").val(data.pessoa.nome);
+      $("#email").val(data.pessoa.email);
+      $("#senha").val(data.pessoa.senha);
+    },
+
+     error:function(data){
+       navigator.notification.alert("Erro no buscar registro");
+    }
+  });
+});
