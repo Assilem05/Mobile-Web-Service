@@ -72,3 +72,70 @@ $(document).on("change", "#listaPessoas", function(){
     }
   });
 });
+
+function habilitarCampos(){
+  $("#nome").prop("readonly", false);
+  $("#email").prop("readonly", false);
+  $("#senha").prop("readonly", false);
+}
+
+function desabilitarCampos(){
+  $("#nome").prop("readonly", true);
+  $("#email").prop("readonly", true);
+  $("#senha").prop("readonly", true);
+}
+
+$(document).on("click","#editar", function(){
+  habilitarCampos();
+});
+
+$(document).on("click","#cancelar", function(){
+  desabilitarCampos();
+});
+
+$(document).on("click","#salvarEdit", function(){
+   var parametro = {
+    "codigo":$("#codigo").val(),
+    "nome":$("#nome").val(),
+    "senha":$("#senha").val(),
+    "email":$("#email").val()
+  }
+
+  $.ajax({
+    type:"post",
+    url:"",
+    data:parametros,
+
+    success: function(data){
+      navigator.notification.alert(data);
+      location.reload();
+      desabilitarCampos();
+    },
+
+    error:function(data){
+       navigator.notification.alert("Erro no cadastro");
+    }
+  });
+});
+
+$(document).on("click","#excluir", function(){
+   var parametro = {
+    "codigo":$("#codigo").val()
+  }
+
+  $.ajax({
+    type:"post",
+    url:"",
+    data:parametros,
+
+    success: function(data){
+      navigator.notification.alert(data);
+      location.reload();
+      desabilitarCampos();
+    },
+
+    error:function(data){
+       navigator.notification.alert("Erro no cadastro");
+    }
+  });
+});
