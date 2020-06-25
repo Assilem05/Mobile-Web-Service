@@ -13,7 +13,7 @@ $(document).on("click","#salvar",function(){
 
   $.ajax({
     type:"post",
-    url:"",
+    url:"http://wordpress-online-2.000webhostapp.com/webservice/cadastra.php",
     data:parametros,
 
     success: function(data){
@@ -32,7 +32,7 @@ $(document).on("click","#salvar",function(){
 function listar(){
   $.ajax({
     type:"post",
-    url: "",
+    url: "http://wordpress-online-2.000webhostapp.com/webservice/listar.php",
     dataType:"json",
 
     success: function(data){
@@ -56,7 +56,7 @@ $(document).on("change", "#listaPessoas", function(){
   }
    $.ajax({
     type:"post",
-    url: "",
+    url: "http://wordpress-online-2.000webhostapp.com/webservice/listar-um-registro.php",
     data:parametro,
     dataType:"json",
 
@@ -103,7 +103,7 @@ $(document).on("click","#salvarEdit", function(){
 
   $.ajax({
     type:"post",
-    url:"",
+    url:"http://wordpress-online-2.000webhostapp.com/webservice/atualiza.php",
     data:parametros,
 
     success: function(data){
@@ -125,7 +125,7 @@ $(document).on("click","#excluir", function(){
 
   $.ajax({
     type:"post",
-    url:"",
+    url:"http://wordpress-online-2.000webhostapp.com/webservice/delete.php",
     data:parametros,
 
     success: function(data){
